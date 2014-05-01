@@ -99,6 +99,12 @@ module Pixiv
       }.bind(self)
     end
 
+    def ranking_list(mode, date)
+      attrs = { mode: mode, date: date }
+      ranking = Ranking.lazy_new(attrs) { agent.get(Ranking.url(mode, date)) }
+      ranking.bind(self)
+    end
+
     # @param [Pixiv::IllustList] list
     # @!macro [new] opts_and_return
     #   @param [Hash] opts
@@ -132,6 +138,10 @@ module Pixiv
     # (see {SearchResultList.url})
     def search(query, opts = {})
       illusts(search_result_list(query, opts))
+    end
+
+    def ranking(mode, date = '')
+      illusts(ranking_list(query, opts))
     end
 
     # Downloads the image to +io_or_filename+

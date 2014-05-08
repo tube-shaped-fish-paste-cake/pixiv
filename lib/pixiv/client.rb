@@ -99,10 +99,14 @@ module Pixiv
       }.bind(self)
     end
 
-    def ranking_list(mode, date)
+    def ranking_list(mode, date = nil)
+      if date == nil then
+        date = ((Date::today) - 1)
+      end
       attrs = { mode: mode, date: date }
-      ranking = Ranking.lazy_new(attrs) { agent.get(Ranking.url(mode, date)) }
-      ranking.bind(self)
+      RankingList.lazy_new(attrs) {
+        agent.get(RankingList.url(mode, date))
+      }.bind(self)
     end
 
     # @param [Pixiv::IllustList] list

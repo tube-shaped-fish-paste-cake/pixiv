@@ -17,7 +17,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_dependency 'mechanize', '~> 2.0'
+  gem.add_runtime_dependency 'mechanize', '~> 2.0'
 
   gem.add_development_dependency 'rake', '>= 0.8.7'
   gem.add_development_dependency 'rspec', '~> 2.12'

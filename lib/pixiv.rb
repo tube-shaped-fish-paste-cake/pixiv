@@ -13,6 +13,7 @@ module Pixiv
   autoload :PageCollection,      'pixiv/page_collection'
   autoload :PrivateBookmarkList, 'pixiv/bookmark_list'
   autoload :SearchResultList,    'pixiv/search_result_list'
+  autoload :RankingList,         'pixiv/ranking_list'
   autoload :WorkList,            'pixiv/work_list'
 
   ROOT_URL = 'http://www.pixiv.net'

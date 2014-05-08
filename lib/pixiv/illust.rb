@@ -57,6 +57,10 @@ module Pixiv
     # @return [Integer]
     lazy_attr_reader(:score) { at!('.score-count').inner_text.to_i }
 
+    lazy_attr_reader(:rank) {
+      at!('data-rank').to_i
+    }
+
     alias id illust_id
     alias author_id member_id
     alias author_name member_name
